@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus XO // Van AI Engine</title>
+    <style>
+        :root {
+            --bg-dark: #090d16;
+            --bg-card: #111726;
+            --neon-cyan: #06b6d4;
+            --neon-rose: #f43f5e;
+            --text-light: #f3f4f6;
+            --border: #1e293b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 400px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 26px;
+            letter-spacing: 2px;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px rgba(6, 182, 212, 0.3);
+        }
+
+        .status-panel {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 12px;
+            text-align: center;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 14px;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .cell {
+            aspect-ratio: 1;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .cell:active {
+            transform: scale(0.95);
+        }
+
+        .cell.x {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 12px rgba(6, 182, 212, 0.5);
+        }
+
+        .cell.o {
+            color: var(--neon-rose);
+            text-shadow: 0 0 12px rgba(244, 63, 94, 0.5);
+        }
+
+        .btn-reset {
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 12px;
+            border-radius: 6px;
+            font-family: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.2s;
+        }
+
+        .btn-reset:active {
+            background: rgba(6, 182, 212, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>NEXUS_XO // VAN_AI</h1>
+        <p style="color: #64748b; margin: 5px 0 0 0; font-size: 12px;">Predictive matrix logic engine execution.</p>
+    </header>
+
+    <div class="status-panel" id="status-display">SYSTEM_READY // YOUR TURN (X)</div>
+
+    <div class="grid" id="board">
+        <div class="cell" data-index="0"></div>
+        <div class="cell" data-index="1"></div>
+        <div class="cell" data-index="2"></div>
+        <div class="cell" data-index="3"></div>
+        <div class="cell" data-index="4"></div>
+        <div class="cell" data-index="5"></div>
+        <div class="cell" data-index="6"></div>
+        <div class="cell" data-index="7"></div>
+        <div class="cell" data-index="8"></div>
+    </div>
+
+    <button class="btn-reset" onclick="resetMatrix()">Clear Matrix Buffer</button>
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
